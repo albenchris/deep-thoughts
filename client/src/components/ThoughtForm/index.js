@@ -11,12 +11,21 @@ const ThoughtForm = () => {
         }
     };
 
+    const handleFormSubmit = async e => {
+        e.preventDefault();
+        setText('');
+        setCharacterCount(0);
+    }
+
     return (
         <div>
             <p className={`m-0 ${characterCount === 280 ? 'text-error' : ''}`}>
                 Character Count: {characterCount}/280
             </p>
-            <form className='flex-row justify-center justify-space-between-md align-stretch'>
+            <form
+                className='flex-row justify-center justify-space-between-md align-stretch'
+                onSumbit={handleFormSubmit}
+            >
                 <textarea
                     placeholder="Here's a new thought..."
                     value={thoughtText}
